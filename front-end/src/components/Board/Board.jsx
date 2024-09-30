@@ -1,7 +1,9 @@
 import "./Board.css";
+import Ranks from "./bits/Ranks.jsx"
+import Files from "./bits/Files.jsx"
 
 function Board() {
-    const rank = Array(8).fill().map((_, i) => 8 - i);
+    const ranks = Array(8).fill().map((_, i) => 8 - i);
     const files = Array(8).fill().map((_, i) => String.fromCharCode(i + 97));
 
     
@@ -12,16 +14,21 @@ function Board() {
     };
 
     return (
+        
         <div className="board">
+
+        <Ranks ranks={ranks}  />
+
             <div className="tiles">
-                {rank.map((rank, i) =>
+                {ranks.map((rank, i) =>
                     files.map((file, j) =>
-                        <div key={file + "-" + rank} className={getClassName(i, j)}>
-                            {rank}{file}
-                        </div>
+                        <div key={file + "-" + rank} className={getClassName(i, j)}></div>
                     )
                 )}
             </div>
+
+            <Files files={files} />
+
         </div>
     );
 }
