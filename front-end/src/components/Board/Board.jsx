@@ -1,6 +1,7 @@
 import "./Board.css";
 import Ranks from "./bits/Ranks.jsx"
 import Files from "./bits/Files.jsx"
+import Pieces from "../Pieces/Pieces.jsx";
 
 function Board() {
     const ranks = Array(8).fill().map((x, i) => 8 - i);
@@ -17,7 +18,7 @@ function Board() {
         
         <div className="board">
 
-        <Ranks ranks={ranks}  />
+            <Ranks ranks={ranks}  />
 
             <div className="tiles">
                 {ranks.map((rank, i) =>
@@ -26,6 +27,8 @@ function Board() {
                     )
                 )}
             </div>
+
+            <Pieces/>
 
             <Files files={files} />
 

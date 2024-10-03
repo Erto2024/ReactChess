@@ -2,6 +2,8 @@
 .board {
   display:grid;
   grid-template-columns: calc(0.25*var(--tile-size)) calc(8*var(--tile-size));
+  
+  
 }
 
 .tiles{
@@ -9,6 +11,7 @@
   grid-template-columns: repeat(8,var(--tile-size));
   grid-template-rows: repeat(8,var(--tile-size));
   width: calc(8*var(--tile-size));
+  
 }
 
 .tile--light{
