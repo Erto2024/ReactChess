@@ -11,16 +11,14 @@ function Pieces() {
 
   console.log(position);
 
-  return <div className="pieces">
+  return<div className="pieces">
           {position.map((r,rank) =>
             r.map((f,file) =>
               position[rank][file]
               ?   position [rank][file]
               :   null
-
           ))}
         </div>
   
 }
-
 export default Pieces;
