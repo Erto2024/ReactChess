@@ -1,4 +1,5 @@
 import "./Pieces.css";
+import "./Piece"
 
 function Pieces() {
   const position = new Array(8).fill('').map(x => new Array(8).fill(''));
@@ -15,7 +16,12 @@ function Pieces() {
           {position.map((r,rank) =>
             r.map((f,file) =>
               position[rank][file]
-              ?   position [rank][file]
+              ?   <Piece  
+                    key={rank+"-"+file}
+                    file={file}
+                    rank={rank}
+                    piece={positoin[rank][file]}
+                  />
               :   null
           ))}
         </div>
