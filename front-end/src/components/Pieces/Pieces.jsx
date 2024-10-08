@@ -1,5 +1,5 @@
 import "./Pieces.css";
-import "./Piece"
+import Piece from "./Piece.jsx"
 
 function Pieces() {
   const position = new Array(8).fill('').map(x => new Array(8).fill(''));
@@ -16,15 +16,14 @@ function Pieces() {
           {position.map((r,rank) =>
             r.map((f,file) =>
               position[rank][file]
-              ?   <Piece  
-                    key={rank+"-"+file}
-                    file={file}
-                    rank={rank}
-                    piece={positoin[rank][file]}
+              ?     <Piece  
+                      key={rank+"-"+file}
+                      file={file}
+                      rank={rank}
+                      piece={position[rank][file]}
                   />
               :   null
           ))}
         </div>
-  
 }
 export default Pieces;

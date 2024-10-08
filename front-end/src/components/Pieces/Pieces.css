@@ -13,7 +13,7 @@
   position: absolute;
 }
 
-.piece.bk {background-image: url('../../assets/bk.png');}
+.piece.bk {background-image: url('../../assets/bk.png');} 
 .piece.bq {background-image: url('../../assets/bq.png');}
 .piece.br {background-image: url('../../assets/br.png');}
 .piece.bb {background-image: url('../../assets/bb.png');}
@@ -96,4 +96,4 @@
 .piece.p-40 {transform: translate(400%,700%);}
 .piece.p-50 {transform: translate(500%,700%);}
 .piece.p-60 {transform: translate(600%,700%);}
-.piece.p-70 {transform: translate(700%,700%);}
+.piece.p-70 {transform: translate(700%,700%);} 
