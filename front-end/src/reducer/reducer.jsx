@@ -1,14 +1,24 @@
 import { useReducer } from "react"
+import actionType from "./actionTypes"
 
 export const reducer =  (state,action) => {
   switch(action.type){
-    case 'NEW_MOVE' : {
+    case actionType.NEW_MOVE : {
+      let {turn,position} = state
+
+      turn = turn === "w" ? "b" : "w"
+
+      position = [
+        ...position,
+        action.payload.newPosition
+      ]
       return{
         ...state,
-        position: action.payload.newPosition
+        turn,
+        position
       }
     }
-    
+
     default:
       return state
   }
