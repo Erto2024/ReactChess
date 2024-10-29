@@ -4,7 +4,7 @@ import {useState, useRef} from 'react';
 
 import { createPosition, copyPosition } from "../../helper.js";
 import { useAppContext } from "../../contexts/context.jsx";
-import { makeNewMove } from "../../reducer/actions/move.jsx";
+import { clearCandidates, makeNewMove } from "../../reducer/actions/move.jsx";
 
 function Pieces() {
   const ref = useRef();
@@ -25,12 +25,16 @@ function Pieces() {
     const newPosition = copyPosition(currentState)
     const {x,y} = calculatePosition(e)
     const [p,file,rank] = e.dataTransfer.getData('text').split(",")
+
+    if (appState.candidateMoves?.find(m => m[0] === x && m[1] === y)){
+      newPosition[rank][file] = ''
+      newPosition[x][y] = p
+      dispatch(makeNewMove({newPosition}))
+    }
+
+    dispatch(clearCandidates())
     
     
-    newPosition[rank][file] = ''
-    newPosition[x][y] = p
-    
-    dispatch(makeNewMove({newPosition}))
   }
   const onDragOver = e => {
     e.preventDefault();

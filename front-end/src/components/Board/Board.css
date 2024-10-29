@@ -21,3 +21,28 @@
 .tile--dark{
   background-color: var(--dark-tile);
 }
+
+.highlight:after {
+  content: '';
+  background: var(--highlight);
+  width: calc(.5*var(--tile-size));
+  height: calc(.5*var(--tile-size));
+  display: block;
+  left: 25%;
+  top: 25%;
+  border-radius: 50%;
+  position: relative;
+}
+
+.attacking:after{
+  content: '';
+  border: 6px solid  var(--highlight);
+  width: calc(0.85*var(--tile-size));
+  height: calc(0.85*var(--tile-size));
+  top: 5%;
+  left: 2%;
+  display: block;
+  border-radius: 50%;
+  position: relative;
+
+}

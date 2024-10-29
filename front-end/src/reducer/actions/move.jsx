@@ -16,3 +16,10 @@ export const generateCandidateMoves = ({candidateMoves}) => {
   }
 
 } 
+
+export const clearCandidates = () => {
+  return {
+    type: actionType.CLEAR_CANDIDATE_MOVES,
+  }
+
+} 
