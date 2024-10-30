@@ -31,10 +31,7 @@ function Pieces() {
       newPosition[x][y] = p
       dispatch(makeNewMove({newPosition}))
     }
-
     dispatch(clearCandidates())
-    
-    
   }
   const onDragOver = e => {
     e.preventDefault();
