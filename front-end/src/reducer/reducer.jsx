@@ -1,5 +1,6 @@
 import { useReducer } from "react"
 import actionType from "./actionTypes"
+import { Status } from "../constant"
 
 export const reducer =  (state,action) => {
   switch(action.type){
@@ -30,6 +31,20 @@ export const reducer =  (state,action) => {
         candidateMoves: []
       }
     }
+    case actionType.PROMOTION_OPEN: {
+      return{
+        ...state,
+        status: Status.promoting,
+        promotionSquare: {...action.payload}
+      }
+    }
+    case actionType.PROMOTION_CLOSE : {
+      return {
+          ...state,
+          status : Status.ongoing,
+          promotionSquare : null,
+      }
+  }
     default:
       return state
   }

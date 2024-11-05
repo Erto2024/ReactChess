@@ -3,6 +3,7 @@ import Ranks from "./bits/Ranks.jsx"
 import Files from "./bits/Files.jsx"
 import Pieces from "../Pieces/Pieces.jsx";
 import { useAppContext } from "../../contexts/context.jsx";
+import Popup from "../Popup/Popup.jsx";
 
 function Board() {
     const ranks = Array(8).fill().map((x, i) => 8 - i);
@@ -41,6 +42,8 @@ function Board() {
             </div>
 
             <Pieces/>
+
+            <Popup />
 
             <Files files={files} />
 
