@@ -42,7 +42,7 @@ export const reducer =  (state,action) => {
       return {
           ...state,
           status : Status.ongoing,
-          promotionSquare : null,
+          promotionSquare : null
       }
   }
     default:

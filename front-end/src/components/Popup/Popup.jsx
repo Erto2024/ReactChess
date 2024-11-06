@@ -1,6 +1,6 @@
 import { Status } from "../../constant"
 import { useAppContext } from "../../contexts/context"
-import { ClosePopup } from "../../reducer/actions/popup"
+import { closePopup } from "../../reducer/actions/popup"
 import "./Popup.css"
 import PromotionBox from "./PromotionBox/PromotionBox"
 
@@ -8,13 +8,13 @@ import PromotionBox from "./PromotionBox/PromotionBox"
 const Popup = () => {
 
   const {appState,dispatch} = useAppContext()
-  
-  if(appState.status === Status.ongoing)
-    return null
 
   const onClosePopup = () => {
-    dispatch(ClosePopup)
+    dispatch(closePopup())
   }
+
+  if(appState.status === Status.ongoing)
+    return null
   
   return<div className="popup" >
     <PromotionBox onClosePopup={onClosePopup}/>

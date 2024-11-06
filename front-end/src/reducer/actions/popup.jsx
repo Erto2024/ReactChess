@@ -7,7 +7,7 @@ export const openPromotion = ({rank,file,x,y}) => {
   }
 }
 
-export const ClosePopup = () => {
+export const closePopup = () => {
   return {
       type: actionType.PROMOTION_CLOSE,
   }
