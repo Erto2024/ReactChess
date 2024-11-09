@@ -1,16 +1,30 @@
-import "./Pieces.css";
-import Piece from "./Piece.jsx";
-import {useState, useRef} from 'react';
-import arbiter from "../../arbiter/arbiter.jsx"
-import { createPosition, copyPosition } from "../../helper.js";
-import { useAppContext } from "../../contexts/context.jsx";
-import { clearCandidates, makeNewMove } from "../../reducer/actions/move.jsx";
-import { openPromotion } from "../../reducer/actions/popup.jsx";
+import './Pieces.css'
+import Piece from './Piece'
+import { useRef  } from 'react'
+import { useAppContext }from '../../contexts/context'
+import { openPromotion } from '../../reducer/actions/popup'
+import { getCastlingDirections } from '../../arbiter/getMoves'
+import { updateCastling,} from '../../reducer/actions/game'
+
+import { makeNewMove, clearCandidates } from '../../reducer/actions/move'
+import arbiter from '../../arbiter/arbiter'
 
 function Pieces() {
   const ref = useRef();
   
   const {appState,dispatch} = useAppContext();
+
+  const updateCastlingState = ({piece,file,rank}) => {
+    const direction = getCastlingDirections({
+        castleDirection:appState.castleDirection,
+        piece,
+        file,
+        rank
+    })
+    if (direction){
+        dispatch(updateCastling(direction))
+    }
+}
   
   const currentPosition = appState.position[appState.position.length-1]
 
@@ -40,6 +54,9 @@ function Pieces() {
         openPromotionBox({rank,file,x,y})
         return 
       }
+      if (piece.endsWith('r') || piece.endsWith('k')){
+        updateCastlingState({piece,file,rank})
+    }
       const newPosition = arbiter.performMove({
         position:currentPosition,
         piece,rank,file,
