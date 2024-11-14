@@ -46,3 +46,15 @@
   position: relative;
 
 }
+
+.checked:after {
+  content: '';
+  background: var(--checked);
+  width: var(--tile-size);
+  height: var(--tile-size);
+  display: block;
+  left: 0%;
+  top: 0%;
+  border-radius: 20%;
+  position: relative;
+}
