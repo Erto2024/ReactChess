@@ -6,6 +6,8 @@ import { useAppContext } from "../../contexts/context.jsx";
 import Popup from "../Popup/Popup.jsx";
 import arbiter from "../../arbiter/arbiter.jsx";
 import { getKingPosition } from "../../arbiter/getMoves.jsx";
+import PromotionBox from "../Popup/PromotionBox/PromotionBox.jsx";
+import GameEnds from "../Popup/GameEnds/GameEnds.jsx";
 
 function Board() {
     const ranks = Array(8).fill().map((x, i) => 8 - i);
@@ -56,7 +58,10 @@ function Board() {
 
             <Pieces/>
 
-            <Popup />
+            <Popup>
+                <PromotionBox />
+                <GameEnds />
+            </Popup>
 
             <Files files={files} />
 

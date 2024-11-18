@@ -53,8 +53,17 @@ export const reducer =  (state,action) => {
         ...state,
         castleDirection,
     }
-}
-    default:
+  }case actionType.STALEMATE: {
+    return{
+      ...state,
+      status: Status.stalemate,
+    }
+  }case actionType.NEW_GAME: {
+  return{
+    ...action.payload
+    }
+  }
+  default:
       return state
   }
 }

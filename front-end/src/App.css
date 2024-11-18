@@ -11,3 +11,14 @@ html,body{
   height: 100vh;
   place-content: center;
 }
+
+button{
+  background: var(--dark-tile);
+  color: var(--light-tile);
+  border: 0 none;
+  padding: 10px 30px;
+  font-size: 1.1em
+}
+button:hover{
+ color: white;
+}
