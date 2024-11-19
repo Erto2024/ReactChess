@@ -67,8 +67,11 @@ function Pieces() {
       })
       dispatch(makeNewMove({newPosition}))
 
-      if(arbiter.isStalemate(newPosition,opponent,castleDirection))
+      if(arbiter.insufficientMaterial(newPosition,)){
+        dispatch(detectInsufficientMaterial())
+      }else if(arbiter.isStalemate(newPosition,opponent,castleDirection)){
         dispatch(detectStalemate())
+      }
     }
     dispatch(clearCandidates())
   }

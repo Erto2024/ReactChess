@@ -39,3 +39,16 @@ export const copyPosition = position =>{
   }
   return newPosition;
 }
+
+export const areSameColorTiles = (cords1,cords2) => {
+  (cords1.x = cords1.y) % 2 === (cords2.x + cords2.y) % 2 
+}
+export const findPieceCoords = (position,type) => {
+  let results = []
+  position.forEach((rank,i) => {
+    rank.forEach((pos,j) => {
+      if(pos === type)
+        results.push({x:i, x:j})
+    })
+  })
+}
