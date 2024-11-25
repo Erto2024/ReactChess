@@ -7,10 +7,21 @@ export const updateCastling = (direction) => {
         payload: direction,
     }
 }
+export const detectCheckMate = winner =>{
+    return{
+        type: actionType.CHECKMATE,
+        payload: winner
+    }
+}
 
-export const detectStalemate = () => {
+export const detectStalemate = winner => {
     return {
         type: actionType.STALEMATE,
+    }
+}
+export const detectInsufficientMaterial = () => {
+    return {
+        type: actionType.INSUFFICIENT,
     }
 }
 export const setupNewGame = () => {

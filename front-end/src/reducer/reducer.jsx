@@ -62,6 +62,16 @@ export const reducer =  (state,action) => {
   return{
     ...action.payload
     }
+  }case actionType.INSUFFICIENT: {
+    return{
+      ...state,
+      status: Status.insufficient
+    }
+  }case actionType.CHECKMATE: {
+    return{
+      ...state,
+      status: action.payload === 'w' ? Status.white : Status.black,
+    }
   }
   default:
       return state
