@@ -11,6 +11,6 @@
 
 @media all and (max-width: 450px) {
   :root {
-    --tile-size: 50px;
+    --tile-size: 40px;
   }
 }

@@ -22,7 +22,7 @@ function Piece({rank,file,piece}) {
     }
   }
 
-  const onDragEnd = e => e.target.style.display = "block"
+  const onDragEnd = e => e.target.style.display = ""
 
   return(
 
